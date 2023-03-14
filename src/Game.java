@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Game extends SquareHolder {
+public class Game {
 
     private int levelCount = 0;
     private Level currentLevel;

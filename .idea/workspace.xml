@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb9f5dbb-053c-4873-8c7f-63586e4e1d1b" name="Changes" comment="Inital files added">
-      <change afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Level.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Square.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SquareHolder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TestGameHoldsLevels.java" afterDir="false" />
+    <list default="true" id="eb9f5dbb-053c-4873-8c7f-63586e4e1d1b" name="Changes" comment="first 7 tests Pass">
+      <change afterPath="$PROJECT_DIR$/src/GoalHolder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TestLevelHoldsGoals.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java-assessment-2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/java-assessment-2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +68,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678757294492</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="first 7 tests Pass">
+      <created>1678783451057</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1678783451057</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -87,6 +91,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Inital files added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Inital files added" />
+    <MESSAGE value="first 7 tests Pass" />
+    <option name="LAST_COMMIT_MESSAGE" value="first 7 tests Pass" />
   </component>
 </project>
