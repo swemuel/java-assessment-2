@@ -1,11 +1,15 @@
 public class Square {
     public int row;
     public int column;
-    public Color color;
-    public Shape shape;
+    protected Color color;
+    protected Shape shape;
 
-    public Square(Color newColor, Shape newShape) {
-        this.color = newColor;
-        this.shape = newShape;
+    public int getRow() {
+        return this.row;
     }
+
+    public int getColumn() {
+        return this.column;
+    }
+
 }

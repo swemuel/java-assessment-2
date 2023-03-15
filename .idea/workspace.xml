@@ -4,14 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb9f5dbb-053c-4873-8c7f-63586e4e1d1b" name="Changes" comment="first 7 tests Pass">
-      <change afterPath="$PROJECT_DIR$/src/Goal.java" afterDir="false" />
+    <list default="true" id="eb9f5dbb-053c-4873-8c7f-63586e4e1d1b" name="Changes" comment="5/7 of the TestLevelHoldsGoals pass">
+      <change afterPath="$PROJECT_DIR$/src/BlankSquare.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Eyeball.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/PlayableSquare.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TestGameHoldsEyeball.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TestGameHoldsSquares.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TestUpMoves.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GoalHolder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Goal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Goal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Square.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SquareHolder.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +85,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678783451057</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="5/7 of the TestLevelHoldsGoals pass">
+      <created>1678855490276</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1678855490276</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -98,6 +109,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Inital files added" />
     <MESSAGE value="first 7 tests Pass" />
-    <option name="LAST_COMMIT_MESSAGE" value="first 7 tests Pass" />
+    <MESSAGE value="5/7 of the TestLevelHoldsGoals pass" />
+    <option name="LAST_COMMIT_MESSAGE" value="5/7 of the TestLevelHoldsGoals pass" />
   </component>
 </project>

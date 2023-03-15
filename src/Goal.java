@@ -1,6 +1,6 @@
 public class Goal {
-    int row;
-    int column;
+    protected int row;
+    protected int column;
 
     public Goal(int newRow, int newColumn) {
         this.row = newRow;

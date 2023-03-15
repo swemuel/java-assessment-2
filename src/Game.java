@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Game implements ILevelHolder, IEyeballHolder, IGoalHolder, ISquareHolder {
+public class Game implements ILevelHolder, IEyeballHolder, IGoalHolder, ISquareHolder, IMoving {
 
     private int levelCount = 0;
     private Level currentLevel;
@@ -54,16 +54,34 @@ public class Game implements ILevelHolder, IEyeballHolder, IGoalHolder, ISquareH
     */
 
     @Override
-    public void addSquare(Square square, int row, int column) {
+    public void addSquare(Square square, int row, int column) throws IllegalArgumentException {
+        if (row > this.currentLevel.height || row < 0 || column > this.currentLevel.width || column < 0){
+            throw new IllegalArgumentException("Square outside of level range.");
+        }
+        square.row = row;
+        square.column = column;
+        this.currentLevel.mazeGrid.add(square);
     }
     @Override
     public Color getColorAt(int row, int column) {
-        return Color.BLUE;
+        ArrayList<Square> squares = this.currentLevel.mazeGrid;
+        for (Square square: squares) {
+            if(row == square.getRow() && column == square.getColumn()){
+                return square.color;
+            }
+        }
+        return null;
     }
 
     @Override
     public Shape getShapeAt(int row, int column) {
-        return Shape.BLANK;
+        ArrayList<Square> squares = this.currentLevel.mazeGrid;
+        for (Square square: squares) {
+            if(row == square.getRow() && column == square.getColumn()){
+                return square.shape;
+            }
+        }
+        return null;
     }
 
     /*
@@ -73,23 +91,27 @@ public class Game implements ILevelHolder, IEyeballHolder, IGoalHolder, ISquareH
     */
 
     @Override
-    public void addEyeball(int row, int column, Direction direction) {
-
+    public void addEyeball(int row, int column, Direction direction) throws IllegalArgumentException {
+        if (row > this.currentLevel.height || row < 0 || column > this.currentLevel.width || column < 0){
+            throw new IllegalArgumentException("Eyeball outside of level range.");
+        }
+        Eyeball newEyeball = new Eyeball(row, column, direction);
+        this.currentLevel.eyeball = newEyeball;
     }
 
     @Override
     public int getEyeballRow() {
-        return 0;
+        return this.currentLevel.eyeball.row;
     }
 
     @Override
     public int getEyeballColumn() {
-        return 0;
+        return this.currentLevel.eyeball.column;
     }
 
     @Override
     public Direction getEyeballDirection() {
-        return null;
+        return this.currentLevel.eyeball.direction;
     }
 
     /*
@@ -99,7 +121,10 @@ public class Game implements ILevelHolder, IEyeballHolder, IGoalHolder, ISquareH
     */
 
     @Override
-    public void addGoal(int row, int column) {
+    public void addGoal(int row, int column) throws IllegalArgumentException {
+        if (row > this.currentLevel.height || row < 0 || column > this.currentLevel.width || column < 0) {
+            throw new IllegalArgumentException("Goal square outside of range.");
+        }
         Goal newGoal = new Goal(row, column);
         this.currentLevel.allMyGoals.add(newGoal);
     }
@@ -122,6 +147,47 @@ public class Game implements ILevelHolder, IEyeballHolder, IGoalHolder, ISquareH
 
     @Override
     public int getCompletedGoalCount() {
-        return 0;
+        return this.currentLevel.completedGoalCount;
+    }
+
+    /*
+
+    IMoving
+
+    */
+
+    @Override
+    public boolean canMoveTo(int destinationRow, int destinationColumn) {
+        return false;
+    }
+
+    @Override
+    public Message MessageIfMovingTo(int destinationRow, int destinationColumn) {
+        return null;
+    }
+
+    @Override
+    public boolean isDirectionOK(int destinationRow, int destinationColumn) {
+        return false;
+    }
+
+    @Override
+    public Message checkDirectionMessage(int destinationRow, int destinationColumn) {
+        return null;
+    }
+
+    @Override
+    public boolean hasBlankFreePathTo(int destinationRow, int destinationColumn) {
+        return false;
+    }
+
+    @Override
+    public Message checkMessageForBlankOnPathTo(int destinationRow, int destinationColumn) {
+        return null;
+    }
+
+    @Override
+    public void moveTo(int destinationRow, int destinationColumn) {
+
     }
 }
