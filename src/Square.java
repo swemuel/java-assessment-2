@@ -1,6 +1,6 @@
 public class Square {
     public int row;
-    public int col;
+    public int column;
     public Color color;
     public Shape shape;
 
