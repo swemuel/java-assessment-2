@@ -97,6 +97,7 @@ public class Game implements ILevelHolder, IEyeballHolder, IGoalHolder, ISquareH
         }
         Eyeball newEyeball = new Eyeball(row, column, direction);
         this.currentLevel.eyeball = newEyeball;
+        this.currentLevel.assignEyeballColorAndShape(row, column);
     }
 
     @Override
@@ -158,6 +159,10 @@ public class Game implements ILevelHolder, IEyeballHolder, IGoalHolder, ISquareH
 
     @Override
     public boolean canMoveTo(int destinationRow, int destinationColumn) {
+        if (isDirectionOK(destinationRow, destinationColumn) &&
+                this.currentLevel.validShapeOrColor(destinationRow, destinationColumn)) {
+            return true;
+        }
         return false;
     }
 
@@ -168,6 +173,22 @@ public class Game implements ILevelHolder, IEyeballHolder, IGoalHolder, ISquareH
 
     @Override
     public boolean isDirectionOK(int destinationRow, int destinationColumn) {
+        Direction eyeballDirection = this.currentLevel.eyeball.direction;
+
+        switch (eyeballDirection) {
+            case UP:
+                this.currentLevel.canMoveUpAndInRange(destinationRow, destinationColumn);
+                break;
+            case RIGHT:
+                this.currentLevel.canMoveRightAndInRange(destinationRow, destinationColumn);
+                break;
+            case DOWN:
+                this.currentLevel.canMoveDownAndInRange(destinationRow, destinationColumn);
+                break;
+            case LEFT:
+                this.currentLevel.canMoveLeftAndInRange(destinationRow, destinationColumn);
+                break;
+        }
         return false;
     }
 

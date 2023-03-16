@@ -57,3 +57,51 @@ class TestUpMoves {
         boolean expected = true;
         game.addEyeball(6, 0, Direction.LEFT);
         boolean actual = game.isDirectionOK(5, 0);
+    }
+    @Test
+    void testNotOkWhenMovingBackwards() {
+        boolean expected = false;
+        game.addEyeball(6, 0, Direction.DOWN);
+        boolean actual = game.isDirectionOK(5, 0);
+        assertEquals(expected, actual);
+    }
+    @Test
+    void testGetsErrorMessageWhenMovingBackwards() {
+        Message expected = Message.BACKWARDS_MOVE;
+        game.addEyeball(6, 0, Direction.DOWN);
+        Message actual = game.checkDirectionMessage(5, 0);
+        assertEquals(expected, actual);
+    }
+    @Test
+    void testNotOkWhenPathToDestinationCrossesBlank() {
+        boolean expected = false;
+        game.addEyeball(6, 0, Direction.UP);
+        boolean actual = game.hasBlankFreePathTo(0, 0);
+        assertEquals(expected, actual);
+    }
+    @Test
+    void testErrorMessageWhenPathToDestinationCrossesBlank() {
+        Message expected = Message.MOVING_OVER_BLANK;
+        game.addEyeball(6, 0, Direction.UP);
+        Message actual = game.checkMessageForBlankOnPathTo(0, 0);
+        assertEquals(expected, actual);
+    }
+    @Test
+    void testEyeballMovesToDestinationRowAndColumn() {
+        int expectedRow = 4;
+        int expectedColumn = 0;
+        int[] expected = { expectedRow, expectedColumn };
+        game.addEyeball(6, 0, Direction.UP);
+        game.moveTo(4, 0);
+        int[] actual = { game.getEyeballRow(), game.getEyeballColumn() };
+        assertArrayEquals(expected, actual);
+    }
+    @Test
+    void testEyeballFacesUPOnMovingUp() {
+        Direction expectedDirection = Direction.UP;
+        game.addEyeball(6, 0, Direction.RIGHT);
+        game.moveTo(4, 0);
+        Direction actualDirection = game.getEyeballDirection();
+        assertEquals(expectedDirection, actualDirection);
+    }
+}

@@ -4,18 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb9f5dbb-053c-4873-8c7f-63586e4e1d1b" name="Changes" comment="5/7 of the TestLevelHoldsGoals pass">
-      <change afterPath="$PROJECT_DIR$/src/BlankSquare.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Eyeball.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PlayableSquare.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TestGameHoldsEyeball.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TestGameHoldsSquares.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TestUpMoves.java" afterDir="false" />
+    <list default="true" id="eb9f5dbb-053c-4873-8c7f-63586e4e1d1b" name="Changes" comment="4 sets of 7 tests complete, start test upmoves">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Eyeball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Eyeball.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Goal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Goal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Square.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Move.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TestUpMoves.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TestUpMoves.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +87,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678855490276</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="4 sets of 7 tests complete, start test upmoves">
+      <created>1678922371741</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1678922371741</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -110,6 +112,7 @@
     <MESSAGE value="Inital files added" />
     <MESSAGE value="first 7 tests Pass" />
     <MESSAGE value="5/7 of the TestLevelHoldsGoals pass" />
-    <option name="LAST_COMMIT_MESSAGE" value="5/7 of the TestLevelHoldsGoals pass" />
+    <MESSAGE value="4 sets of 7 tests complete, start test upmoves" />
+    <option name="LAST_COMMIT_MESSAGE" value="4 sets of 7 tests complete, start test upmoves" />
   </component>
 </project>
