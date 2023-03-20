@@ -15,6 +15,15 @@ public class Level {
         this.levelNumber = newLevelNumber;
     }
 
+    public void moveEyeball(int row, int column) {
+        this.eyeball.row = row;
+        this.eyeball.column = column;
+    }
+
+    public void changeEyeballDirection(int row, int column) {
+        this.eyeball.direction = this.destinationDirection(row, column);
+    }
+
     public void assignEyeballColorAndShape(int row, int column) {
         for (Square square: mazeGrid) {
             if (square.row == row && square.column == column) {
@@ -24,44 +33,27 @@ public class Level {
         }
     }
 
-    public void goalComplete() {
-        this.completedGoalCount ++;
-    }
+    public Direction destinationDirection(int destinationRow, int destinationColumn) {
 
-    public boolean canMoveUpAndInRange(int targetRow, int targetColumn) {
-        if (this.eyeball.direction == Direction.UP || this.eyeball.direction == Direction.LEFT
-                || this.eyeball.direction == Direction.RIGHT) {
-            if (targetRow < this.eyeball.row
-                    && targetRow >= 0 && targetColumn == this.eyeball.column) {
-                return true;
+        if (this.eyeball.row == destinationRow) {
+            if (this.eyeball.column < destinationColumn) {
+                return Direction.RIGHT;
+            } else if (this.eyeball.column > destinationColumn) {
+                return Direction.LEFT;
             }
         }
-
-        return false;
+        if(this.eyeball.column == destinationColumn) {
+            if (this.eyeball.row < destinationRow) {
+                return Direction.DOWN;
+            } else if (this.eyeball.row > destinationRow) {
+                return Direction.UP;
+            }
+        }
+        return null;
     }
 
-    public boolean canMoveDownAndInRange(int targetRow, int targetColumn) {
-        if (this.eyeball.direction == Direction.DOWN && targetRow > this.eyeball.row
-                && targetRow <= this.height && targetColumn == this.eyeball.column) {
-            return true;
-        }
-        return false;
-    }
-
-    public boolean canMoveRightAndInRange(int targetRow, int targetColumn) {
-        if (this.eyeball.direction == Direction.RIGHT && targetColumn > this.eyeball.column
-                && targetColumn <= this.height && targetRow == this.eyeball.row) {
-            return true;
-        }
-        return false;
-    }
-
-    public boolean canMoveLeftAndInRange(int targetRow, int targetColumn) {
-        if (this.eyeball.direction == Direction.LEFT && targetColumn < this.eyeball.column
-                && targetColumn >= 0 && targetRow == this.eyeball.row) {
-            return true;
-        }
-        return false;
+    public void goalComplete() {
+        this.completedGoalCount ++;
     }
 
     public boolean validShapeOrColor(int row, int column) {
@@ -73,6 +65,33 @@ public class Level {
             }
         }
         return false;
+    }
+
+    public Message legalMove(int destinationRow, int destinationColumn) {
+        Direction destDirection = this.destinationDirection(destinationRow, destinationColumn);
+        switch (destDirection) {
+            case UP:
+                if (this.eyeball.direction == Direction.DOWN) {
+                    return Message.BACKWARDS_MOVE;
+                }
+                break;
+            case RIGHT:
+                if (this.eyeball.direction == Direction.LEFT) {
+                    return Message.BACKWARDS_MOVE;
+                }
+                break;
+            case DOWN:
+                if (this.eyeball.direction == Direction.UP) {
+                    return Message.BACKWARDS_MOVE;
+                }
+                break;
+            case LEFT:
+                if (this.eyeball.direction == Direction.RIGHT) {
+                    return Message.BACKWARDS_MOVE;
+                }
+                break;
+        }
+        return Message.OK;
     }
 
 }

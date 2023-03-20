@@ -168,33 +168,23 @@ public class Game implements ILevelHolder, IEyeballHolder, IGoalHolder, ISquareH
 
     @Override
     public Message MessageIfMovingTo(int destinationRow, int destinationColumn) {
-        return null;
+        if (!this.currentLevel.validShapeOrColor(destinationRow, destinationColumn)) {
+            return Message.DIFFERENT_SHAPE_OR_COLOR;
+        }
+        return this.checkDirectionMessage(destinationRow, destinationColumn);
     }
 
     @Override
     public boolean isDirectionOK(int destinationRow, int destinationColumn) {
-        Direction eyeballDirection = this.currentLevel.eyeball.direction;
-
-        switch (eyeballDirection) {
-            case UP:
-                this.currentLevel.canMoveUpAndInRange(destinationRow, destinationColumn);
-                break;
-            case RIGHT:
-                this.currentLevel.canMoveRightAndInRange(destinationRow, destinationColumn);
-                break;
-            case DOWN:
-                this.currentLevel.canMoveDownAndInRange(destinationRow, destinationColumn);
-                break;
-            case LEFT:
-                this.currentLevel.canMoveLeftAndInRange(destinationRow, destinationColumn);
-                break;
+        if (this.currentLevel.legalMove(destinationRow, destinationColumn) == Message.OK) {
+            return true;
         }
         return false;
     }
 
     @Override
     public Message checkDirectionMessage(int destinationRow, int destinationColumn) {
-        return null;
+        return this.currentLevel.legalMove(destinationRow, destinationColumn);
     }
 
     @Override
@@ -209,6 +199,9 @@ public class Game implements ILevelHolder, IEyeballHolder, IGoalHolder, ISquareH
 
     @Override
     public void moveTo(int destinationRow, int destinationColumn) {
-
+        if (canMoveTo(destinationRow,destinationColumn)) {
+            this.currentLevel.changeEyeballDirection(destinationRow, destinationColumn);
+            this.currentLevel.moveEyeball(destinationRow, destinationColumn);
+        }
     }
 }

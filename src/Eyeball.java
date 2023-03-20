@@ -11,7 +11,31 @@ public class Eyeball {
         this.direction = newDirection;
     }
 
-    public void moveUp(int row, int column) {
-        //if
+    public boolean canFaceUp() {
+        if (this.direction == Direction.DOWN) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean canFaceDown() {
+        if (this.direction == Direction.UP) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean canFaceRight() {
+        if (this.direction == Direction.LEFT) {
+            return false;
+        }
+        return true;
+    }
+
+    public boolean canFaceLeft() {
+        if (this.direction == Direction.RIGHT) {
+            return false;
+        }
+        return true;
     }
 }
