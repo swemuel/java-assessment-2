@@ -189,12 +189,50 @@ public class Game implements ILevelHolder, IEyeballHolder, IGoalHolder, ISquareH
 
     @Override
     public boolean hasBlankFreePathTo(int destinationRow, int destinationColumn) {
-        return false;
+        Direction destDirection = this.currentLevel.destinationDirection(destinationRow, destinationColumn);
+        switch (destDirection) {
+            case UP:
+                for (int i = this.currentLevel.eyeball.row; i >= destinationRow; i--) {
+                    if (this.getColorAt(i, destinationColumn) == Color.BLANK
+                            || this.getShapeAt(destinationRow, destinationColumn) == Shape.BLANK) {
+                        return false;
+                    }
+                }
+                break;
+            case RIGHT:
+                for (int i = this.currentLevel.eyeball.column; i <= destinationColumn; i++) {
+                    if (this.getColorAt(destinationRow, i) == Color.BLANK
+                            || this.getShapeAt(destinationRow, destinationColumn) == Shape.BLANK) {
+                        return false;
+                    }
+                }
+                break;
+            case DOWN:
+                for (int i = this.currentLevel.eyeball.row; i <= destinationRow; i++) {
+                    if (this.getColorAt(i, destinationColumn) == Color.BLANK
+                            || this.getShapeAt(destinationRow, destinationColumn) == Shape.BLANK) {
+                        return false;
+                    }
+                }
+                break;
+            case LEFT:
+                for (int i = this.currentLevel.eyeball.column; i >= destinationColumn; i--) {
+                    if (this.getColorAt(destinationRow, i) == Color.BLANK
+                            || this.getShapeAt(destinationRow, destinationColumn) == Shape.BLANK) {
+                        return false;
+                    }
+                }
+                break;
+        }
+        return true;
     }
 
     @Override
     public Message checkMessageForBlankOnPathTo(int destinationRow, int destinationColumn) {
-        return null;
+        if (!this.hasBlankFreePathTo(destinationRow, destinationColumn)) {
+            return Message.MOVING_OVER_BLANK;
+        }
+        return Message.OK;
     }
 
     @Override
