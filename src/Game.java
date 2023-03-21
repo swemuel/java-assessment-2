@@ -237,9 +237,19 @@ public class Game implements ILevelHolder, IEyeballHolder, IGoalHolder, ISquareH
 
     @Override
     public void moveTo(int destinationRow, int destinationColumn) {
+        int previousRow = this.currentLevel.eyeball.row;
+        int previousColumn = this.currentLevel.eyeball.column;
         if (canMoveTo(destinationRow,destinationColumn)) {
             this.currentLevel.changeEyeballDirection(destinationRow, destinationColumn);
             this.currentLevel.moveEyeball(destinationRow, destinationColumn);
+       }
+        if (this.currentLevel.goalJustComplete) {
+            for (Square square : this.currentLevel.mazeGrid) {
+                if (square.row == previousRow && square.column == previousColumn) {
+                    square.shape = Shape.BLANK;
+                    square.color = Color.BLANK;
+                }
+            }
         }
     }
 }
