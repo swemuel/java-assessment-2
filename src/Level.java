@@ -68,7 +68,7 @@ public class Level {
                 return Direction.UP;
             }
         }
-        return null;
+        return Direction.Invalid;
     }
 
     public boolean validShapeOrColor(int row, int column) {
@@ -85,28 +85,29 @@ public class Level {
     public Message legalMove(int destinationRow, int destinationColumn) {
         Direction destDirection = this.destinationDirection(destinationRow, destinationColumn);
         switch (destDirection) {
-            case UP:
+            case UP -> {
                 if (this.eyeball.direction == Direction.DOWN) {
                     return Message.BACKWARDS_MOVE;
                 }
-                break;
-            case RIGHT:
+            }
+            case RIGHT -> {
                 if (this.eyeball.direction == Direction.LEFT) {
                     return Message.BACKWARDS_MOVE;
                 }
-                break;
-            case DOWN:
+            }
+            case DOWN -> {
                 if (this.eyeball.direction == Direction.UP) {
                     return Message.BACKWARDS_MOVE;
                 }
-                break;
-            case LEFT:
+            }
+            case LEFT -> {
                 if (this.eyeball.direction == Direction.RIGHT) {
                     return Message.BACKWARDS_MOVE;
                 }
-                break;
-            case null:
+            }
+            default -> {
                 return Message.MOVING_DIAGONALLY;
+            }
         }
         return Message.OK;
     }

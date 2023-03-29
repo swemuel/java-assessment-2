@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb9f5dbb-053c-4873-8c7f-63586e4e1d1b" name="Changes" comment="All Move tests done - 76 total">
-      <change afterPath="$PROJECT_DIR$/src/Position.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TestCompletingGoals.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TestDiagonalMoves.java" afterDir="false" />
+    <list default="true" id="eb9f5dbb-053c-4873-8c7f-63586e4e1d1b" name="Changes" comment="All Move tests done - 76 total&#10;Null error fixed">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Direction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level.java" afterDir="false" />
     </list>
@@ -48,9 +47,39 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "ignore.preview.features.used": "true"
+    "ignore.preview.features.used": "true",
+    "last_opened_file_path": "C:/Users/sam2564/OneDrive - Ara Institute of Canterbury/GitRepos/java-assessment-2",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="TestCompletingGoals and 9 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-assessment-2" />
+      <option name="TEST_OBJECT" value="pattern" />
+      <patterns>
+        <pattern testClass="TestCompletingGoals" />
+        <pattern testClass="TestDiagonalMoves" />
+        <pattern testClass="TestDownMoves" />
+        <pattern testClass="TestGameHoldsEyeball" />
+        <pattern testClass="TestGameHoldsLevels" />
+        <pattern testClass="TestGameHoldsSquares" />
+        <pattern testClass="TestLeftMoves" />
+        <pattern testClass="TestLevelHoldsGoals" />
+        <pattern testClass="TestRightMoves" />
+        <pattern testClass="TestUpMoves" />
+      </patterns>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.TestCompletingGoals and 9 more" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

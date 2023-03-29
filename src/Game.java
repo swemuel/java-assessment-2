@@ -4,7 +4,7 @@ public class Game implements ILevelHolder, IEyeballHolder, IGoalHolder, ISquareH
 
     private int levelCount = 0;
     private Level currentLevel;
-    public ArrayList<Level> allMyLevels = new ArrayList<Level>();
+    public ArrayList<Level> allMyLevels = new ArrayList<>();
 
 
     /*
@@ -95,8 +95,7 @@ public class Game implements ILevelHolder, IEyeballHolder, IGoalHolder, ISquareH
         if (row > this.currentLevel.height || row < 0 || column > this.currentLevel.width || column < 0){
             throw new IllegalArgumentException("Eyeball outside of level range.");
         }
-        Eyeball newEyeball = new Eyeball(row, column, direction);
-        this.currentLevel.eyeball = newEyeball;
+        this.currentLevel.eyeball = new Eyeball(row, column, direction);
         this.currentLevel.assignEyeballColorAndShape(row, column);
     }
 
@@ -159,11 +158,8 @@ public class Game implements ILevelHolder, IEyeballHolder, IGoalHolder, ISquareH
 
     @Override
     public boolean canMoveTo(int destinationRow, int destinationColumn) {
-        if (isDirectionOK(destinationRow, destinationColumn) &&
-                this.currentLevel.validShapeOrColor(destinationRow, destinationColumn)) {
-            return true;
-        }
-        return false;
+        return isDirectionOK(destinationRow, destinationColumn) &&
+                this.currentLevel.validShapeOrColor(destinationRow, destinationColumn);
     }
 
     @Override
@@ -176,10 +172,7 @@ public class Game implements ILevelHolder, IEyeballHolder, IGoalHolder, ISquareH
 
     @Override
     public boolean isDirectionOK(int destinationRow, int destinationColumn) {
-        if (this.currentLevel.legalMove(destinationRow, destinationColumn) == Message.OK) {
-            return true;
-        }
-        return false;
+        return this.currentLevel.legalMove(destinationRow, destinationColumn) == Message.OK;
     }
 
     @Override
@@ -191,38 +184,41 @@ public class Game implements ILevelHolder, IEyeballHolder, IGoalHolder, ISquareH
     public boolean hasBlankFreePathTo(int destinationRow, int destinationColumn) {
         Direction destDirection = this.currentLevel.destinationDirection(destinationRow, destinationColumn);
         switch (destDirection) {
-            case UP:
+            case UP -> {
                 for (int i = this.currentLevel.eyeball.row; i >= destinationRow; i--) {
                     if (this.getColorAt(i, destinationColumn) == Color.BLANK
                             || this.getShapeAt(destinationRow, destinationColumn) == Shape.BLANK) {
                         return false;
                     }
                 }
-                break;
-            case RIGHT:
+            }
+            case RIGHT -> {
                 for (int i = this.currentLevel.eyeball.column; i <= destinationColumn; i++) {
                     if (this.getColorAt(destinationRow, i) == Color.BLANK
                             || this.getShapeAt(destinationRow, destinationColumn) == Shape.BLANK) {
                         return false;
                     }
                 }
-                break;
-            case DOWN:
+            }
+            case DOWN -> {
                 for (int i = this.currentLevel.eyeball.row; i <= destinationRow; i++) {
                     if (this.getColorAt(i, destinationColumn) == Color.BLANK
                             || this.getShapeAt(destinationRow, destinationColumn) == Shape.BLANK) {
                         return false;
                     }
                 }
-                break;
-            case LEFT:
+            }
+            case LEFT -> {
                 for (int i = this.currentLevel.eyeball.column; i >= destinationColumn; i--) {
                     if (this.getColorAt(destinationRow, i) == Color.BLANK
                             || this.getShapeAt(destinationRow, destinationColumn) == Shape.BLANK) {
                         return false;
                     }
                 }
-                break;
+            }
+            case Invalid -> {
+                return false;
+            }
         }
         return true;
     }
