@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb9f5dbb-053c-4873-8c7f-63586e4e1d1b" name="Changes" comment="All Move tests done - 76 total&#10;Null error fixed">
+    <list default="true" id="eb9f5dbb-053c-4873-8c7f-63586e4e1d1b" name="Changes" comment="Final refactor before ass#1 submission">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Direction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Direction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Eyeball.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Eyeball.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Level.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Level.java" afterDir="false" />
     </list>
@@ -39,22 +40,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "ignore.preview.features.used": "true",
-    "last_opened_file_path": "C:/Users/sam2564/OneDrive - Ara Institute of Canterbury/GitRepos/java-assessment-2",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;ignore.preview.features.used&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sam2564/OneDrive - Ara Institute of Canterbury/GitRepos/java-assessment-2&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
-  <component name="RunManager">
+}</component>
+  <component name="RunManager" selected="JUnit.TestCompletingGoals and 9 more">
     <configuration name="TestCompletingGoals and 9 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-assessment-2" />
       <option name="TEST_OBJECT" value="pattern" />
@@ -74,9 +75,49 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestDiagonalMoves" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-assessment-2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestDiagonalMoves" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestDownMoves" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-assessment-2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestDownMoves" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestLeftMoves" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-assessment-2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestLeftMoves" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestRightMoves" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-assessment-2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestRightMoves" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.TestCompletingGoals and 9 more" />
+        <item itemvalue="JUnit.TestDiagonalMoves" />
+        <item itemvalue="JUnit.TestRightMoves" />
+        <item itemvalue="JUnit.TestLeftMoves" />
+        <item itemvalue="JUnit.TestDownMoves" />
       </list>
     </recent_temporary>
   </component>
@@ -145,7 +186,7 @@
       <option name="project" value="LOCAL" />
       <updated>1679339501782</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -167,6 +208,8 @@
     <MESSAGE value="need to re-think direction as each direction has 3 legal directions. think Rook from chess game" />
     <MESSAGE value="MoveUp tests nearly complete - 39 total" />
     <MESSAGE value="All Move tests done - 76 total" />
-    <option name="LAST_COMMIT_MESSAGE" value="All Move tests done - 76 total" />
+    <MESSAGE value="All tests pass!" />
+    <MESSAGE value="Final refactor before ass#1 submission" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final refactor before ass#1 submission" />
   </component>
 </project>

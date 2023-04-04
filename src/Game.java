@@ -170,6 +170,7 @@ public class Game implements ILevelHolder, IEyeballHolder, IGoalHolder, ISquareH
         return this.checkDirectionMessage(destinationRow, destinationColumn);
     }
 
+    //REFACTOR
     @Override
     public boolean isDirectionOK(int destinationRow, int destinationColumn) {
         return this.currentLevel.legalMove(destinationRow, destinationColumn) == Message.OK;
@@ -183,41 +184,42 @@ public class Game implements ILevelHolder, IEyeballHolder, IGoalHolder, ISquareH
     @Override
     public boolean hasBlankFreePathTo(int destinationRow, int destinationColumn) {
         Direction destDirection = this.currentLevel.destinationDirection(destinationRow, destinationColumn);
-        switch (destDirection) {
-            case UP -> {
-                for (int i = this.currentLevel.eyeball.row; i >= destinationRow; i--) {
-                    if (this.getColorAt(i, destinationColumn) == Color.BLANK
-                            || this.getShapeAt(destinationRow, destinationColumn) == Shape.BLANK) {
-                        return false;
+        if (destDirection == null) {
+            return false;
+        } else  {
+            switch (destDirection) {
+                case UP -> {
+                    for (int i = this.currentLevel.eyeball.row; i >= destinationRow; i--) {
+                        if (this.getColorAt(i, destinationColumn) == Color.BLANK
+                                || this.getShapeAt(destinationRow, destinationColumn) == Shape.BLANK) {
+                            return false;
+                        }
                     }
                 }
-            }
-            case RIGHT -> {
-                for (int i = this.currentLevel.eyeball.column; i <= destinationColumn; i++) {
-                    if (this.getColorAt(destinationRow, i) == Color.BLANK
-                            || this.getShapeAt(destinationRow, destinationColumn) == Shape.BLANK) {
-                        return false;
+                case RIGHT -> {
+                    for (int i = this.currentLevel.eyeball.column; i <= destinationColumn; i++) {
+                        if (this.getColorAt(destinationRow, i) == Color.BLANK
+                                || this.getShapeAt(destinationRow, destinationColumn) == Shape.BLANK) {
+                            return false;
+                        }
                     }
                 }
-            }
-            case DOWN -> {
-                for (int i = this.currentLevel.eyeball.row; i <= destinationRow; i++) {
-                    if (this.getColorAt(i, destinationColumn) == Color.BLANK
-                            || this.getShapeAt(destinationRow, destinationColumn) == Shape.BLANK) {
-                        return false;
+                case DOWN -> {
+                    for (int i = this.currentLevel.eyeball.row; i <= destinationRow; i++) {
+                        if (this.getColorAt(i, destinationColumn) == Color.BLANK
+                                || this.getShapeAt(destinationRow, destinationColumn) == Shape.BLANK) {
+                            return false;
+                        }
                     }
                 }
-            }
-            case LEFT -> {
-                for (int i = this.currentLevel.eyeball.column; i >= destinationColumn; i--) {
-                    if (this.getColorAt(destinationRow, i) == Color.BLANK
-                            || this.getShapeAt(destinationRow, destinationColumn) == Shape.BLANK) {
-                        return false;
+                case LEFT -> {
+                    for (int i = this.currentLevel.eyeball.column; i >= destinationColumn; i--) {
+                        if (this.getColorAt(destinationRow, i) == Color.BLANK
+                                || this.getShapeAt(destinationRow, destinationColumn) == Shape.BLANK) {
+                            return false;
+                        }
                     }
                 }
-            }
-            case Invalid -> {
-                return false;
             }
         }
         return true;
@@ -235,10 +237,12 @@ public class Game implements ILevelHolder, IEyeballHolder, IGoalHolder, ISquareH
     public void moveTo(int destinationRow, int destinationColumn) {
         int previousRow = this.currentLevel.eyeball.row;
         int previousColumn = this.currentLevel.eyeball.column;
+
         if (canMoveTo(destinationRow,destinationColumn)) {
             this.currentLevel.changeEyeballDirection(destinationRow, destinationColumn);
             this.currentLevel.moveEyeball(destinationRow, destinationColumn);
        }
+
         if (this.currentLevel.goalJustComplete) {
             for (Square square : this.currentLevel.mazeGrid) {
                 if (square.row == previousRow && square.column == previousColumn) {

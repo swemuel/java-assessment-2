@@ -24,6 +24,10 @@ public class Level {
         assignEyeballColorAndShape(row, column);
     }
 
+    public void changeEyeballDirection(int row, int column) {
+        this.eyeball.direction = this.destinationDirection(row, column);
+    }
+
     private void checkGoalComplete(int row, int column) {
         for (Goal goal : this.allMyGoals) {
             if (goal.row == row && goal.column == column) {
@@ -37,10 +41,6 @@ public class Level {
     public void goalComplete() {
         this.completedGoalCount ++;
         this.goalJustComplete = true;
-    }
-
-    public void changeEyeballDirection(int row, int column) {
-        this.eyeball.direction = this.destinationDirection(row, column);
     }
 
     public void assignEyeballColorAndShape(int row, int column) {
@@ -68,7 +68,7 @@ public class Level {
                 return Direction.UP;
             }
         }
-        return Direction.Invalid;
+        return null;
     }
 
     public boolean validShapeOrColor(int row, int column) {
@@ -84,29 +84,30 @@ public class Level {
 
     public Message legalMove(int destinationRow, int destinationColumn) {
         Direction destDirection = this.destinationDirection(destinationRow, destinationColumn);
-        switch (destDirection) {
-            case UP -> {
-                if (this.eyeball.direction == Direction.DOWN) {
-                    return Message.BACKWARDS_MOVE;
+        if (destDirection == null) {
+            return Message.MOVING_DIAGONALLY;
+        } else {
+            switch (destDirection) {
+                case UP -> {
+                    if (this.eyeball.direction == Direction.DOWN) {
+                        return Message.BACKWARDS_MOVE;
+                    }
                 }
-            }
-            case RIGHT -> {
-                if (this.eyeball.direction == Direction.LEFT) {
-                    return Message.BACKWARDS_MOVE;
+                case RIGHT -> {
+                    if (this.eyeball.direction == Direction.LEFT) {
+                        return Message.BACKWARDS_MOVE;
+                    }
                 }
-            }
-            case DOWN -> {
-                if (this.eyeball.direction == Direction.UP) {
-                    return Message.BACKWARDS_MOVE;
+                case DOWN -> {
+                    if (this.eyeball.direction == Direction.UP) {
+                        return Message.BACKWARDS_MOVE;
+                    }
                 }
-            }
-            case LEFT -> {
-                if (this.eyeball.direction == Direction.RIGHT) {
-                    return Message.BACKWARDS_MOVE;
+                case LEFT -> {
+                    if (this.eyeball.direction == Direction.RIGHT) {
+                        return Message.BACKWARDS_MOVE;
+                    }
                 }
-            }
-            default -> {
-                return Message.MOVING_DIAGONALLY;
             }
         }
         return Message.OK;
