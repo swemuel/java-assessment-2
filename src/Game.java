@@ -15,7 +15,7 @@ public class Game implements ILevelHolder, IEyeballHolder, IGoalHolder, ISquareH
 
     @Override
     public void addLevel(int height, int width) {
-        Level newLevel = new Level(height, width, this.levelCount);
+        var newLevel = new Level(height, width, this.levelCount);
         this.allMyLevels.add(newLevel);
         this.levelCount += 1;
         this.setLevel(this.levelCount - 1);
@@ -58,9 +58,11 @@ public class Game implements ILevelHolder, IEyeballHolder, IGoalHolder, ISquareH
         if (row > this.currentLevel.height || row < 0 || column > this.currentLevel.width || column < 0){
             throw new IllegalArgumentException("Square outside of level range.");
         }
-        square.row = row;
-        square.column = column;
-        this.currentLevel.mazeGrid.add(square);
+        if (square instanceof Square) {
+            square.row = row;
+            square.column = column;
+            this.currentLevel.mazeGrid.add(square);
+        }
     }
     @Override
     public Color getColorAt(int row, int column) {
@@ -251,5 +253,20 @@ public class Game implements ILevelHolder, IEyeballHolder, IGoalHolder, ISquareH
                 }
             }
         }
+    }
+
+    public String gameDescription() {
+        StringBuilder description = new StringBuilder();
+
+        description.append("Game Description:\n\n");
+        description.append("This game is a simple maze game.\n");
+        description.append("""
+                You will control an eyeball character and move it around the maze to complete goals.
+                Your goal is to reach all the designated goals and complete the level.
+                The eyeball cannot move backwards.
+                The eyeball can only move to a square with the same shape or colour.
+                """);
+
+        return description.toString();
     }
 }

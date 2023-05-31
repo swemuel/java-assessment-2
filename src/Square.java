@@ -1,4 +1,4 @@
-public class Square {
+public sealed class Square permits BlankSquare, PlayableSquare{
     public int row;
     public int column;
     protected Color color;
